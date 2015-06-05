@@ -21,6 +21,11 @@ My work from following the "Build Your Own AngularJS" book. http://teropa.info/b
 - Adding data to a scope doesn't have performance implications by itself since Angular doesn't iterate on properties, but rather on watchers.
 - Every watch's watch() is called during each call to $digest.
 - In short, **number of watchers has biggest performance impact**.
+- **$evalAsync** defers code that is guaranteed to run during the current digest iteration. (In contrast, the **$timeout** service lets the browser decide when to run the code which could be after any number of operations that may be made unnecessary by the current **$digest**.)
 
 ####Interesting readings:
 - http://alistapart.com/article/getoutbindingsituations
+
+####Interesting observations:
+- !! is a double negative shorthand that converts a var to a boolean.
+- watch() inside watches should be side-effect free. Bad idea for them to do anything other than returning a value.
